@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MagicUIDemo\**" />
+    <EmbeddedResource Remove="MagicUIDemo\**" />
+    <None Remove="MagicUIDemo\**" />
+    <Page Remove="MagicUIDemo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NetCore5.0.Microsoft.Expression.Drawing" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

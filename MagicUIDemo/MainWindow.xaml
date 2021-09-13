@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MagicUIDemo"
+        xmlns:MagicUI="clr-namespace:MagicUI;assembly=MagicUI"
+        x:Class="MagicUIDemo.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ProgressBar Value="{Binding Value, ElementName=TestC}" HorizontalAlignment="Left" Height="20" Margin="472,71,0,0" VerticalAlignment="Top" Width="141"/>
+
+        <MagicUI:CircularProgressBar HorizontalAlignment="Left" Height="100" Value="{Binding Value ,ElementName=TestC}" Margin="472,119,0,0" VerticalAlignment="Top" Width="100" Maximum="150"/>
+        <Slider x:Name="TestC" HorizontalAlignment="Left" Margin="451,254,0,0" VerticalAlignment="Top" Maximum="100" Width="199"/>
+        <MagicUI:MagicButton HorizontalAlignment="Left" Height="50" Margin="120,0,0,0" VerticalAlignment="Center" Width="100" Content="MagicButton" CornerRadius="5">
+        </MagicUI:MagicButton>
+
+    </Grid>
+</Window>

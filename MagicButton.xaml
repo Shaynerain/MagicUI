@@ -1,0 +1,39 @@
+﻿<Button x:Class="MagicUI.MagicButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MagicUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="120">
+    <Button.Template>
+        <ControlTemplate  TargetType="{x:Type Button}">
+            <Grid>
+                <Border x:Name="border" CornerRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=CornerRadius}"
+                        Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </Border>
+            </Grid>
+
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="Button.BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Button.IsMouseOver" Value="true">
+                    <Setter Property="Button.Background" TargetName="border" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=MouseOverBackground}"/>
+                    <Setter Property="Button.BorderBrush" TargetName="border" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=MouseOverBorder}"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="true">
+                    <Setter Property="Button.Background" TargetName="border" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=PressedBackground}"/>
+                    <Setter Property="Button.BorderBrush" TargetName="border"  Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=PressedBorder}"/>
+                </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="false">
+                    <Setter Property="Button.Background" TargetName="border"  Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=DisabledBackground}"/>
+                    <Setter Property="Button.BorderBrush" TargetName="border"  Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=DisabledBorder}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MagicButton}}, Path=DisabledForeground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
